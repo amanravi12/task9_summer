@@ -1,0 +1,167 @@
+<html>
+
+<head>
+    <title>task9</title>
+    <style>
+        body {
+            background-color: rgb(37, 17, 101);
+        }
+
+        .im {
+            position: absolute;
+            left: 260px;
+            height: 300px;
+            width: 100%;
+        }
+
+        .cm {
+            color: azure;
+            position: relative;
+            top: 500px;
+            left: 500px;
+            width: 100%;
+        }
+
+        .ta {
+            background: white;
+            height: 30px;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .int {
+            border: none;
+            border-style: none;
+            outline: none;
+            padding-top: 10px;
+        }
+
+        .output {
+            position: relative;
+            top: 500px;
+            background-color:black;
+            color: antiquewhite;
+            height: 200px;
+            width: 100%;
+        }
+    </style>
+    <script>
+        function lw(){
+
+var i=document.getElementById("inp").value;
+var xhr = new XMLHttpRequest();
+//xhr.open("GET", "http://192.168.56.101/cgi-bin/task9.py?x=" + i, false);
+//xhr.send();
+//alert(i);
+//code
+
+var card = "0"
+var final = ""
+if (((i.includes("deployments")) || (i.includes("deploy")) || (i.includes("deployment"))) && ((i.includes("create")) || (i.includes("generate")) {
+      var image = prompt("Enter image name: ")
+  var deployment_name = prompt("Enter Deployment name: ")
+  var card = "a"
+  var final = card + " " + image + " " + deployment_name 
+  
+  }
+
+else if (((i.includes("pods")) || (i.includes("pod"))) && ((i.includes("create")) || (i.includes("generate")) {
+  var image = prompt("Enter image name: ")
+  var pod_name = prompt("Enter pod name: ")
+  var card = "b"
+  var final = card + " " + image + " " + pod_name
+  
+  }
+
+else if (((i.includes("pods")) || (i.includes("pod"))) &&  (i.includes("remove")) || ((i.includes("delete")){
+  var pod_name = prompt("Enter pod name: ")
+  var card = "c"
+  var final =card  + " " + pod_name
+  
+  }
+
+else if (((i.includes("deployments")) || (i.includes("deploy")) || (i.includes("deployment"))) &&) || (i.includes("remove"))|| ((i.includes("delete")  {
+  var deployment_name = prompt("Enter Deployment name: ")
+  var card = "d"
+  var final = card + " " + deployment_name
+  
+  }
+
+else if (((i.includes("deployments")) || (i.includes("deploy")) || (i.includes("deployment"))) && ((i.includes("expose"))  || (i.includes("display")))) {
+  var deployment_name = prompt("Enter Deployment name: ")
+  var port_no = prompt("Enter port no on which you want yo export your deployment: ")
+  var expose_type = prompt(" 1. NodePort \n 2. ClusterIP \n 3.External \n Enter the type which you want to export ")
+  var card = "e"
+  var final = card + " " + deployment_name + " " + port_no + " " + expose_type
+  
+  }
+
+else if (((i.includes("deployments")) || (i.includes("deploy")) || (i.includes("deployment"))) && ((i.includes("scale")) || (i.includes("increase")) || (i.includes("decrease")) {
+  var deployment_name = prompt("Enter Deployment name: ")
+  var replica = prompt("Enter no. of replicas you need : ")
+  var card = "f"
+  var final = card + " " + deployment_name + " " + replica
+  
+  }
+
+else if (((i.includes("services")) || (i.includes("services")) || (i.includes("svc"))) && ((i.includes("show")) || (i.includes("get")) || (i.includes("list")))) {
+  var card = "g"
+  var final = card
+  
+  }
+
+else if (((i.includes("all")) || (i.includes("everything"))) && ((i.includes("delete")) || (i.includes("remove")) || (i.includes("destroy")))) {
+  var card = "h"
+  var final = card 
+  
+}
+
+else {
+  var card = "err"
+  var final = card
+  
+}
+
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://192.168.56.101/cgi-bin/task9.py?x=" + final, false);
+
+xhr.send();
+
+// Output from above url
+var output = xhr.responseText;
+alert(output);
+document.getElementById("d1").innerHTML = output;
+
+//xhr.onload = function () {
+  //var output = xhr.responseText;
+//alert(output);
+// document.getElementById("d1").innerHTML = output;
+
+//}
+
+}
+    </script>
+</head>
+
+<body>
+    <div class="over">
+        <div class="im">
+            <img src="k.jpg" alt="Paris" width="800px" height="400 ">
+        </div>
+
+        <div class="cm">
+            <h1>Enter Your command</h1>
+            <div class="ta">
+                <input class="int" id="inp" placeholder="Enter Your Command" height="50px">
+            </div>
+            <button onclick="lw()" class="btn">Submit</button>
+        </div>
+<pre>
+        <div class="output" id ="d1">
+        </div>
+<pre>
+    </div>
+</body>
+
+</html>
